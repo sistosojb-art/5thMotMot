@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy MotMot Wifey🤭🌷</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;600&family=Poppins:wght@400;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffe4f0, #f8d7ff, #e0d4ff);
+      color: #d44a8f;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      background: #fff9fb;
+      min-height: 100vh;
+      box-shadow: 0 20px 60px rgba(212, 74, 143, 0.25);
+      border-radius: 40px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: fixed;
+      font-size: 34px;
+      pointer-events: none;
+      z-index: 100;
+      animation: floatHeart 13s linear infinite;
+      filter: drop-shadow(0 4px 8px rgba(212, 74, 143, 0.3));
+    }
+
+    @keyframes floatHeart {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0.95; }
+      100% { transform: translateY(-200px) rotate(720deg); opacity: 0; }
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff9ed6, #c79eff);
+      color: white;
+      padding: 40px 20px 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.2em;
+      margin-bottom: 8px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .subtitle {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.35em;
+      opacity: 0.95;
+    }
+
+    nav {
+      display: flex;
+      background: rgba(255, 249, 251, 0.95);
+      backdrop-filter: blur(15px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 14px 10px;
+      gap: 6px;
+      border-bottom: 1px solid #ffe0f0;
+    }
+
+    nav button {
+      flex: 1;
+      background: #ff9ed6;
+      color: white;
+      border: none;
+      padding: 14px 6px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9em;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    nav button.active {
+      background: #c79eff;
+      transform: scale(1.08);
+      box-shadow: 0 5px 18px rgba(199, 158, 255, 0.45);
+    }
+
+    section {
+      display: none;
+      padding: 28px 22px;
+      min-height: 70vh;
+      opacity: 0;
+      transform: translateY(35px) scale(0.97);
+      transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      color: #c79eff;
+      margin-bottom: 20px;
+      font-size: 2.4em;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-item {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(199, 158, 255, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Quick lift-up on tap (no need to hold) */
+    .gallery-item:active {
+      transform: translateY(-20px) scale(1.05);
+      box-shadow: 0 25px 50px rgba(199, 158, 255, 0.4);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-item p {
+      padding: 14px 10px;
+      font-size: 0.9em;
+      color: #c79eff;
+      text-align: center;
+      background: white;
+    }
+
+    .video-container {
+      background: #fff0f8;
+      border-radius: 24px;
+      padding: 18px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 25px rgba(199, 158, 255, 0.18);
+    }
+
+    video {
+      width: 100%;
+      border-radius: 18px;
+      margin-bottom: 10px;
+    }
+
+    .message {
+      background: #fff0f8;
+      border-radius: 26px;
+      padding: 28px;
+      margin: 22px 0;
+      box-shadow: 0 8px 25px rgba(199, 158, 255, 0.15);
+      line-height: 1.75;
+    }
+
+    /* Spotify */
+    .spotify-container {
+      background: #fff0f8;
+      border-radius: 24px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 25px rgba(199, 158, 255, 0.18);
+    }
+
+    .spotify-container iframe {
+      border-radius: 18px;
+      width: 100%;
+      height: 152px;
+    }
+
+    /* PIN Lock */
+    #lockScreen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #ff9ed6, #c79eff, #b2e0ff);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #lockScreen h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2em;
+      margin-bottom: 55px;
+    }
+
+    .pin-display {
+      display: flex;
+      gap: 22px;
+      margin-bottom: 65px;
+    }
+
+    .pin-dot {
+      width: 24px;
+      height: 24px;
+      border: 4px solid rgba(255,255,255,0.95);
+      border-radius: 50%;
+    }
+
+    .pin-dot.filled {
+      background: white;
+      border-color: white;
+      box-shadow: 0 0 12px rgba(255,255,255,0.9);
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 310px;
+    }
+
+    .key {
+      width: 80px;
+      height: 80px;
+      background: rgba(255,255,255,0.9);
+      color: #d44a8f;
+      border: none;
+      border-radius: 50%;
+      font-size: 2.2em;
+      font-weight: 500;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
+
+    .key:active {
+      background: white;
+      transform: scale(0.82);
+    }
+
+    .key.zero {
+      grid-column: 2;
+    }
+  </style>
+</head>
+<body>
+
+<!-- PIN LOCK SCREEN -->
+<div id="lockScreen">
+  <h2>Enter PIN 💖</h2>
+  <div class="pin-display" id="pinDisplay">
+    <div class="pin-dot"></div>
+    <div class="pin-dot"></div>
+    <div class="pin-dot"></div>
+    <div class="pin-dot"></div>
+  </div>
+  <div class="keypad" id="keypad"></div>
+</div>
+
+<div class="container">
+
+  <header>
+    <h1>Happy MotMot Wifey🤭🌷</h1>
+    <p class="subtitle">Happy 5th Monthsary, My Mrs. Sistoso</p>
+  </header>
+
+  <nav>
+    <button onclick="showPage('letter')" class="active">Letter👻🤭</button>
+    <button onclick="showPage('pictures')">📸 Memories</button>
+    <button onclick="showPage('videos')">🎥 Videos</button>
+    <button onclick="showPage('music')">🎵 Songs</button>
+    <button onclick="showPage('love')">💕 For You</button>
+  </nav>
+
+  <!-- LETTER -->
+  <section id="letter" class="active">
+    <h2>😚😊 To My Wifey</h2>
+    <div class="message">
+      <p>Happy 5th MotMot Wifey😚☺️<br>
+      Months Have Passed But Feels like Years<br>
+      Days And Night 🌉🤭 Wifey Hubby is SOOOOOOOOOOO PROUD OF YOU PO☺️🌷<br>
+      HUBBY MISSES WIFEY SOO MUCH ☺️<br>
+      We may Be at Distance Apart For now<br>
+      But My Love is still growing everyday <br>
+      Proving that distance isn't a problem <br>
+      God is Our Center to Guide Us☺️<br>
+      Distance it's Forever its Temporary For now<br>
+      But Wifey Again HUBBY LOVE'S YOU SOOOOOOOOOOO MUCH ☺️🤭😊😚🌷<br>
+      I LOVE YOU SOOOOO MUCH PO WIFEY KOOOOOO MWUAAAAAAAAAAAAAAAAA MWUAAAAAAAAAAAA MWUAAAAAAAAAAAAAAAAA MWUAAAAAAAAAAAAAAA MWUAAAAAAAAAAAA 😚☺️🌷☺️😊🤭🌷😚🥰🥳🤭😽😽😻</p>
+    </div>
+  </section>
+
+  <!-- PICTURES - Quick lift on tap -->
+  <section id="pictures">
+    <h2>📸 Our Beautiful Memories</h2>
+    <div class="gallery">
+      <div class="gallery-item"><img src="pic1.jpg"><p>1st Date🤗😚</p></div>
+      <div class="gallery-item"><img src="pic2.jpg"><p>Our Selfie😽🤗</p></div>
+      <div class="gallery-item"><img src="pic3.jpg"><p>Grass Day👻😽🤗</p></div>
+      <div class="gallery-item"><img src="pic4.jpg"><p>Cute Moment😚😊</p></div>
+      <div class="gallery-item"><img src="pic5.jpg"><p>Food Date🥳🌷</p></div>
+      <div class="gallery-item"><img src="pic6.jpg"><p>Random Cute💋🤭</p></div>
+      <div class="gallery-item"><img src="pic7.jpg"><p>Smile Attack😻😊</p></div>
+      <div class="gallery-item"><img src="pic8.jpg"><p>Night Out🙏🥹</p></div>
+      <div class="gallery-item"><img src="pic9.jpg"><p>Love You🌷😻😽</p></div>
+      <div class="gallery-item"><img src="pic10.jpg"><p>Best Memory👀🤭</p></div>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="videos">
+    <h2>🎥 Our Cute Videos</h2>
+    <div class="video-container">
+      <video controls><source src="vid1.mp4" type="video/mp4"></video>
+      <p>Video 1 - Our Sweet Moment</p>
+    </div>
+    <div class="video-container">
+      <video controls><source src="vid2.mp4" type="video/mp4"></video>
+      <p>Video 2 - Laughing Together</p>
+    </div>
+    <div class="video-container">
+      <video controls><source src="vid3.mp4" type="video/mp4"></video>
+      <p>Video 3 - Special Memory</p>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section id="music">
+    <h2>🎵 Our Songs</h2>
+    <div class="spotify-container">
+      <iframe src="https://open.spotify.com/embed/track/60FXqDiSBkzdexOB3Ai3om" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <p style="text-align:center; margin-top:8px; color:#c79eff;">Kahit Maputi Na Ang Buhok Ko - Moira</p>
+    </div>
+
+    <div class="spotify-container">
+      <iframe src="https://open.spotify.com/embed/track/1vrd6UOGamcKNGnSHJQlSt" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <p style="text-align:center; margin-top:8px; color:#c79eff;">Love Story - Taylor Swift</p>
+    </div>
+
+    <div class="spotify-container">
+      <iframe src="https://open.spotify.com/embed/track/5y2ijHECwFYWqcAHKTZgzD" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <p style="text-align:center; margin-top:8px; color:#c79eff;">Risk It All - Bruno Mars</p>
+    </div>
+  </section>
+
+  <!-- LOVE NOTES -->
+  <section id="love">
+    <h2>💕 Reminder</h2>
+    <div class="message">
+      <p>Reminder Wifey Pahabol Lng po😽🤭<br>
+      Even at the Toughest Time's Hubby is here po😚☺️ <br>
+      You dont have to go through all of it by you're self po hm☺️<br>
+      Remember Hubby is Hear not to be an Enemy but to be by you're Side☺️🌷<br>
+      To Be You're Ear and so you'll feel heard and feel understood ☺️🤭😊<br>
+      MWUAAAAAAAAAAAAAAAAA MWUAAAAAAAAAAAA MWUAAAAAAAAAAAAAAAAA MWUAAAAAAAAAAAAAAA MWUAAAAAAAAAAAA MWUAAAAAAAAAAAAAAAAA 🤭😚😽🌷😻🥰🌷😚☺️😽🤭😊😽🌷😻🌷😻🥰💋💋💋💋</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// Floating Hearts
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  const hearts = ['💖','💗','💓','💘','💝','🩷','💞','🌸'];
+  heart.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (Math.random() * 10 + 12) + 's';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 22000);
+}
+setInterval(createHeart, 500);
+
+// Smooth Page Transition
+function showPage(page) {
+  document.querySelectorAll('section').forEach(sec => {
+    sec.style.opacity = '0';
+    sec.style.transform = 'translateY(40px) scale(0.96)';
+  });
+
+  setTimeout(() => {
+    document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+    const target = document.getElementById(page);
+    target.classList.add('active');
+    target.style.opacity = '1';
+    target.style.transform = 'translateY(0) scale(1)';
+  }, 180);
+
+  document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+}
+
+// PIN LOCK
+let enteredPin = "";
+const correctPin = "1126";
+
+const pinDots = document.querySelectorAll('.pin-dot');
+
+function updateDots() {
+  pinDots.forEach((dot, i) => dot.classList.toggle('filled', i < enteredPin.length));
+}
+
+function addNumber(num) {
+  if (enteredPin.length >= 4) return;
+  enteredPin += num;
+  updateDots();
+
+  if (enteredPin.length === 4) {
+    setTimeout(() => {
+      if (enteredPin === correctPin) {
+        document.getElementById('lockScreen').style.display = "none";
+      } else {
+        alert("Wrong PIN 💔 Try again cutie\~");
+        enteredPin = "";
+        updateDots();
+      }
+    }, 250);
+  }
+}
+
+// Build Keypad
+const keypad = document.getElementById('keypad');
+for (let i = 1; i <= 9; i++) {
+  const btn = document.createElement('button');
+  btn.className = 'key';
+  btn.textContent = i;
+  btn.onclick = () => addNumber(i.toString());
+  keypad.appendChild(btn);
+}
+
+const zeroBtn = document.createElement('button');
+zeroBtn.className = 'key zero';
+zeroBtn.textContent = '0';
+zeroBtn.onclick = () => addNumber('0');
+keypad.appendChild(zeroBtn);
+</script>
+
+</body>
+</html>
